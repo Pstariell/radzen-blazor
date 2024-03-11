@@ -15,7 +15,8 @@ $tabs-tab-line-height: var(--rz-body-line-height) !default;
 $tabs-tab-font-weight: normal !default;
 $tabs-tab-text-transform: none !default;
 $tabs-tab-letter-spacing: 0 !default;
-$tabs-tab-padding: 0.5rem 1rem !default;
+$tabs-tab-padding-block: 0.5rem !default;
+$tabs-tab-padding-inline: 1rem !default;
 $tabs-tab-background-color: var(--rz-base-200) !default;
 $tabs-tab-color: var(--rz-secondary) !default;
 $tabs-tab-selected-color: $tabs-selected-tab-color !default;
@@ -28,7 +29,7 @@ $tabs-tab-focus-outline: var(--rz-outline-focus) !default;
 $tabs-tab-focus-outline-offset: calc(-1 * var(--rz-outline-width)) !default;
 
 $tabs-icon-font-size: var(--rz-icon-size) !default;
-$tabs-icon-margin: 0 0.25rem 0 -0.25rem !default;
+$tabs-icon-margin-inline: -0.25rem 0.25rem !default;
 $tabs-transition: var(--rz-transition-all) !default;
 
 // Tabs CSS variables
@@ -44,7 +45,8 @@ $tabs-transition: var(--rz-transition-all) !default;
   --rz-tabs-tab-font-weight: #{$tabs-tab-font-weight};
   --rz-tabs-tab-text-transform: #{$tabs-tab-text-transform};
   --rz-tabs-tab-letter-spacing: #{$tabs-tab-letter-spacing};
-  --rz-tabs-tab-padding: #{$tabs-tab-padding};
+  --rz-tabs-tab-padding-block: #{$tabs-tab-padding-block};
+  --rz-tabs-tab-padding-inline: #{$tabs-tab-padding-inline};
   --rz-tabs-tab-background-color: #{$tabs-tab-background-color};
   --rz-tabs-tab-color: #{$tabs-tab-color};
   --rz-tabs-tab-selected-color: #{$tabs-tab-selected-color};
@@ -56,7 +58,7 @@ $tabs-transition: var(--rz-transition-all) !default;
   --rz-tabs-tab-focus-outline: #{$tabs-tab-focus-outline};
   --rz-tabs-tab-focus-outline-offset: #{$tabs-tab-focus-outline-offset};
   --rz-tabs-icon-font-size: #{$tabs-icon-font-size};
-  --rz-tabs-icon-margin: #{$tabs-icon-margin};
+  --rz-tabs-icon-margin-inline: #{$tabs-icon-margin-inline};
   --rz-tabs-transition: #{$tabs-transition};
 }
 
@@ -137,7 +139,8 @@ $tabs-transition: var(--rz-transition-all) !default;
       display: flex;
       align-items: center;
       color: var(--rz-tabs-tab-color);
-      padding: var(--rz-tabs-tab-padding);
+      padding-block: var(--rz-tabs-tab-padding-block);
+      padding-inline: var(--rz-tabs-tab-padding-inline);
       font-size: var(--rz-tabs-tab-font-size);
       line-height: var(--rz-tabs-tab-line-height);
       font-weight: var(--rz-tabs-tab-font-weight);
@@ -205,7 +208,7 @@ $tabs-transition: var(--rz-transition-all) !default;
   }
 
   .rz-tabview-top-right > & {
-    justify-content: flex-end;
+    justify-content: right;
   }
 
   .rz-tabview-bottom > & {
@@ -234,7 +237,7 @@ $tabs-transition: var(--rz-transition-all) !default;
   }
 
   .rz-tabview-bottom-right > & {
-    justify-content: flex-end;
+    justify-content: right;
   }
 
   .rz-tabview-left > & {
@@ -285,6 +288,11 @@ $tabs-transition: var(--rz-transition-all) !default;
       border-right-color: var(--rz-tabs-tab-selected-top-border-color);
     }
   }
+
+  *[dir="rtl"] .rz-tabview-left > &,
+  *[dir="rtl"] .rz-tabview-right > & {
+    order: 1;
+  }
 }
 
 .rz-tabview-panels {
@@ -321,7 +329,7 @@ $tabs-transition: var(--rz-transition-all) !default;
   padding: var(--rz-tabs-padding);
 }
 
-.rz-tabview-left-icon {
+.rz-tabview-icon {
   font-size: var(--rz-tabs-icon-font-size);
-  margin: var(--rz-tabs-icon-margin);
+  margin-inline: var(--rz-tabs-icon-margin-inline);
 }
