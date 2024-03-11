@@ -9,10 +9,19 @@
             </RadzenCard>
             <h4>Auto-size column series</h4>
             <RadzenChart>
-                <RadzenColumnSeries Data="@revenue2020" CategoryProperty="Quarter" Title="2020" LineType="LineType.Dashed" ValueProperty="Revenue">
+                <RadzenColumnSeries Data="@revenue2019" CategoryProperty="Quarter" Title="2019" ValueProperty="Revenue">
                     <RadzenSeriesDataLabels Visible="@showDataLabels" />
                 </RadzenColumnSeries>
-                <RadzenColumnSeries Data="@revenue2019" CategoryProperty="Quarter" Title="2019" ValueProperty="Revenue">
+                <RadzenColumnSeries Data="@revenue2020" CategoryProperty="Quarter" Title="2020" ValueProperty="Revenue">
+                    <RadzenSeriesDataLabels Visible="@showDataLabels" />
+                </RadzenColumnSeries>
+                <RadzenColumnSeries Data="@revenue2021" CategoryProperty="Quarter" Title="2021" ValueProperty="Revenue">
+                    <RadzenSeriesDataLabels Visible="@showDataLabels" />
+                </RadzenColumnSeries>
+                <RadzenColumnSeries Data="@revenue2022" CategoryProperty="Quarter" Title="2022" ValueProperty="Revenue">
+                    <RadzenSeriesDataLabels Visible="@showDataLabels" />
+                </RadzenColumnSeries>
+                <RadzenColumnSeries Data="@revenue2023" CategoryProperty="Quarter" Title="2023" ValueProperty="Revenue">
                     <RadzenSeriesDataLabels Visible="@showDataLabels" />
                 </RadzenColumnSeries>
                 <RadzenColumnOptions Radius="5" />
@@ -23,13 +32,22 @@
             </RadzenChart>
             <h4>Custom size column series</h4>
             <RadzenChart>
-                <RadzenColumnSeries Data="@revenue2020" CategoryProperty="Quarter" Title="2020" LineType="LineType.Dashed" ValueProperty="Revenue">
-                    <RadzenSeriesDataLabels Visible="@showDataLabels" />
-                </RadzenColumnSeries>
                 <RadzenColumnSeries Data="@revenue2019" CategoryProperty="Quarter" Title="2019" ValueProperty="Revenue">
                     <RadzenSeriesDataLabels Visible="@showDataLabels" />
                 </RadzenColumnSeries>
-                <RadzenColumnOptions Radius="5" Width="20" />
+                <RadzenColumnSeries Data="@revenue2020" CategoryProperty="Quarter" Title="2020" ValueProperty="Revenue">
+                    <RadzenSeriesDataLabels Visible="@showDataLabels" />
+                </RadzenColumnSeries>
+                <RadzenColumnSeries Data="@revenue2021" CategoryProperty="Quarter" Title="2021" ValueProperty="Revenue">
+                    <RadzenSeriesDataLabels Visible="@showDataLabels" />
+                </RadzenColumnSeries>
+                <RadzenColumnSeries Data="@revenue2022" CategoryProperty="Quarter" Title="2022" ValueProperty="Revenue">
+                    <RadzenSeriesDataLabels Visible="@showDataLabels" />
+                </RadzenColumnSeries>
+                <RadzenColumnSeries Data="@revenue2023" CategoryProperty="Quarter" Title="2023" ValueProperty="Revenue">
+                    <RadzenSeriesDataLabels Visible="@showDataLabels" />
+                </RadzenColumnSeries>
+                <RadzenColumnOptions Radius="10" Width="20" />
                 <RadzenCategoryAxis Padding="20" />
                 <RadzenValueAxis Formatter="@FormatAsUSD">
                     <RadzenGridLines Visible="true" />
@@ -71,55 +89,43 @@
 
     List<SeriesColorRange> fillRange = new List<SeriesColorRange>()
     {
-        new SeriesColorRange() {Min = 0, Max = 275000, Color = "red"},
-        new SeriesColorRange() {Min = 275000, Max = 324000, Color = "orange"},
+        new SeriesColorRange() {Min = 0, Max = 275000, Color = "var(--rz-primary)"},
+        new SeriesColorRange() {Min = 275000, Max = 324000, Color = "var(--rz-warning)"},
         new SeriesColorRange() {Min = 324000, Max = 10000000, Color = "#06cd06"},
     };
 
     DataItem[] revenue2019 = new DataItem[] {
-        new DataItem
-        {
-            Quarter = "Q1",
-            Revenue = 234000
-        },
-        new DataItem
-        {
-            Quarter = "Q2",
-            Revenue = 284000
-        },
-        new DataItem
-        {
-            Quarter = "Q3",
-            Revenue = 274000
-        },
-        new DataItem
-        {
-            Quarter = "Q4",
-            Revenue = 294000
-        },
+        new DataItem { Quarter = "Q1", Revenue = 225000 },
+        new DataItem { Quarter = "Q2", Revenue = 280000 },
+        new DataItem { Quarter = "Q3", Revenue = 260000 },
+        new DataItem { Quarter = "Q4", Revenue = 310000 }
     };
 
     DataItem[] revenue2020 = new DataItem[] {
-        new DataItem
-        {
-            Quarter = "Q1",
-            Revenue = 254000
-        },
-        new DataItem
-        {
-            Quarter = "Q2",
-            Revenue = 324000
-        },
-        new DataItem
-        {
-            Quarter = "Q3",
-            Revenue = 354000
-        },
-        new DataItem
-        {
-            Quarter = "Q4",
-            Revenue = 394000
-        },
+        new DataItem { Quarter = "Q1", Revenue = 245000 },
+        new DataItem { Quarter = "Q2", Revenue = 310000 },
+        new DataItem { Quarter = "Q3", Revenue = 340000 },
+        new DataItem { Quarter = "Q4", Revenue = 390000 }
+    };
 
+    DataItem[] revenue2021 = new DataItem[] {
+        new DataItem { Quarter = "Q1", Revenue = 270000 },
+        new DataItem { Quarter = "Q2", Revenue = 320000 },
+        new DataItem { Quarter = "Q3", Revenue = 350000 },
+        new DataItem { Quarter = "Q4", Revenue = 380000 }
+    };
+
+    DataItem[] revenue2022 = new DataItem[] {
+        new DataItem { Quarter = "Q1", Revenue = 300000 },
+        new DataItem { Quarter = "Q2", Revenue = 330000 },
+        new DataItem { Quarter = "Q3", Revenue = 360000 },
+        new DataItem { Quarter = "Q4", Revenue = 390000 }
+    };
+
+    DataItem[] revenue2023 = new DataItem[] {
+        new DataItem { Quarter = "Q1", Revenue = 320000 },
+        new DataItem { Quarter = "Q2", Revenue = 360000 },
+        new DataItem { Quarter = "Q3", Revenue = 390000 },
+        new DataItem { Quarter = "Q4", Revenue = 380000 }
     };
 }
