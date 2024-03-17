@@ -183,6 +183,12 @@ namespace Radzen.Blazor
         public EventCallback<MouseEventArgs> Add { get; set; }
 
         /// <summary>
+        /// Gets or sets a value indicating if you want enable escape key or tab key.
+        /// </summary>
+        /// <value><c>true</c> if you want enable escape key or tab key; otherwise, <c>false</c>.</value>
+        [Parameter]
+        public bool EnableEscapeOrTab { get; set; } = true;
+        /// <summary>
         /// Gets or sets a value indicating whether the create button is shown.
         /// </summary>
         /// <value><c>true</c> if the create button is shown; otherwise, <c>false</c>.</value>
@@ -655,7 +661,7 @@ namespace Radzen.Blazor
             {
                 await OpenPopup(key, isFilter);
             }
-            else if (key == "Escape" || key == "Tab")
+            else if (EnableEscapeOrTab && (key == "Escape" || key == "Tab"))
             {
                 await JSRuntime.InvokeVoidAsync("Radzen.closePopup", PopupID);
             }
